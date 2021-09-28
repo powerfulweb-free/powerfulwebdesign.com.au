@@ -14,7 +14,7 @@ contactForm('formId',{params});
 ```Javascript
 import contactForm from './contact-form-xhr/src';
 contactForm('js-contactForm', {
-  formAction: 'https://mail.powerfulwebdesign.com.au/pwd.php', 
+  formAction: 'https://address.com/contact.php', 
   grecaptchaKey: 'Public Key', 
 });
 ```
@@ -33,18 +33,10 @@ contactForm('js-contactForm', {
   alertClass = 'alert', // BS5
   successClass = 'alert-success', // BS5
   errorClass = 'alert-danger', // BS5
-  hiddenClass = 'd-none', // custom css class dependency
+  hiddenClass = 'is-hidden', // custom css class dependency
   grecaptchaLocation = 'bottomleft',
 });
 ```
-
-**Sample HTML Form**
-```HTML
-
-```
-
-**Sample HUGO Data**
-See ./hugo DIR
 
 **Parameters**
 
@@ -59,5 +51,5 @@ See ./hugo DIR
 | `alertClass`    | `string`  | 'alert'          | CSS class used to display an alert box |
 | `successClass`  | `string`  | 'alert-success'  | CSS modifier class for success alert |
 | `errorClass`    | `string`  | 'alert-danger'   | CSS modifier class for error alert |
-| `hiddenClass`   | `string`  | 'd-none'      | CSS class used to hide a div |
+| `hiddenClass`   | `string`  | 'is-hidden'      | CSS class used to hide a div (non BS) |
 | `grecaptchaLocation` | `string` | 'bottomleft' | Recaptcha location (bottomright, bottomleft, or inline) |

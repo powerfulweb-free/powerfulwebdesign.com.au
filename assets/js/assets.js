@@ -28,5 +28,5 @@ contactForm('js-contactForm', {
   grecaptchaLocation: 'bottomright',
 });
 
-import togglerIconMorph from './navbar-toggler/src';
+import togglerIconMorph from './toggler-icon-morph/src';
 togglerIconMorph();

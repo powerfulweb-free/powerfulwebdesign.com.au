@@ -28,7 +28,7 @@ export default (
     alertClass = 'alert', // BS5
     successClass = 'alert-success', // BS5
     errorClass = 'alert-danger', // BS5
-    hiddenClass = 'd-none', // BS5
+    hiddenClass = 'is-hidden', // custom css class dependency
     grecaptchaLocation = 'bottomleft',
   } = {}
 ) => {
