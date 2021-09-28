@@ -30,7 +30,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "markdownlint-cli": "^0.26",
     "prettier": "^2.2.1",
-    "standard-version": "^9.1",
+    "standard-version": "^9.3",
     "stylelint": "^13.9",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0"
