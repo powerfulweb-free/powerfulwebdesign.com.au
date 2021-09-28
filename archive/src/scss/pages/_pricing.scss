@@ -1,0 +1,37 @@
+/*--------------------------------------------------------------
+# Pricing
+--------------------------------------------------------------*/
+.pricing {
+
+  .price {
+    font-weight: 500;
+
+    sup {
+      font-size: 1.4rem;
+      top: -1rem;
+      //left: -.2rem;
+    }
+  }
+
+  .hover-primary {
+    border: 2px solid transparent;
+
+    &:hover {
+      border-color: $primary;
+      @extend .transition;
+
+      .btn-outline-primary {
+        @extend .btn-primary;
+        @extend .transition;
+      }
+    }
+  }
+
+  .recommended {
+    border: 2px solid $primary;
+
+    .btn-outline-primary {
+      @extend .btn-primary;
+    }
+  }
+}

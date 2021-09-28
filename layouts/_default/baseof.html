@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode | default "en" }}" class="no-js">
+{{ partial "head/head.html" . }}
+<body class="{{ .Scratch.Get "class" }}">
+  {{ partial "header/script-header.html" . }}
+  {{ if and .IsHome .Site.Params.alert }}
+  {{ partial "header/alert.html" . }}
+  {{ end }}
+  {{ partial "header/header.html" . }}
+  {{ block "main" . }}{{ end }}
+  {{ partial "footer/footer.html" . }}
+  {{ partial "footer/script-footer.html" . }}
+  {{ if .Site.IsServer }}
+  {{- partial "dev/parameters.html" . -}}
+  {{ partial "dev/grid.html" . }}
+  {{ end }}
+</body>
+
+</html>

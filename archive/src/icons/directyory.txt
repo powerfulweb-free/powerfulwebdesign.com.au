@@ -1,0 +1,8 @@
+
+arrow right short - details widget
+
+quote left - testemonials widget
+quote right - testemonials widget
+
+
+telephone - mobile footer

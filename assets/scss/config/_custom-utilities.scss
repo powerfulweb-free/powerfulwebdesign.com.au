@@ -1,0 +1,28 @@
+// $utilities: map-merge(
+//   $utilities, (
+//     "opacity": (
+//       property: opacity,
+//       class: o,
+//       values: (
+//         0: 0,
+//         10: .1,
+//         20: .2,
+//         30: .3,
+//         40: .4,
+//         50: .5,
+//         60: .6,
+//         70: .7,
+//         80: .8,
+//         90: .9,
+//         95: .95,
+//         100: 1,
+//       )
+//     ),
+//     "sprite": (
+//       property: height width,
+//       class: sprite,
+//       values: $spacers
+//     ),
+//   )
+// );
+

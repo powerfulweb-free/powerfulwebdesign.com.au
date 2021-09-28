@@ -1,0 +1,29 @@
+<section id="about" class="section section--about">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-5 col-md-6" data-aos="fade-right">
+        {{ partial "image.html" (dict "page" .ctx "src" .params.image "title" "About Us" "class" "pb-3")}}
+      </div>
+
+      <div class="col-lg-7 col-md-6 align-items-stretch justify-content-center px-xxl-5">
+        <h3 class="mb-3 h5" data-aos="fade-up">{{ .params.title }}</h4>
+        <h4 class="mb-3 h3 fw-bolder" data-aos="fade-up">{{ .params.subtitle }}</h3>
+        <p data-aos="fade-up">{{ .params.content }}</p>
+        {{ range .params.cards }}
+        <div class="icon-container mt-4 row" data-aos="fade-up">
+          <div class="col-auto">
+            <div class="icon text-primary fs-1 p-3 border rounded-circle border-3 transition-5 hover-body hover-bg-primary">
+              <!-- <i class="{{ .class }}"></i> -->
+              {{- partial "svg-font" (dict "svg" .icon "em" 1 "block" true) -}}
+            </div>
+          </div>
+          <div class="col">
+            <h4 class="title fs-5 fw-bolder mb-2" >{{ .title }}</h4>
+            <p class="description small">{{ .content }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

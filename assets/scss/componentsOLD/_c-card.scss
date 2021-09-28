@@ -1,0 +1,46 @@
+.c-card {
+  @extend .card, .my-3, .shadow;
+  //border-radius: $border-radius;
+
+
+  &__image-wrapper {
+    @extend .u-overlay-hover;
+    //border-radius: 2rem;
+    //border-radius: $border-radius;
+    margin: 1rem;
+  }
+
+  &__image {
+    @extend .card-img;
+  }
+
+  &__mask {
+    @extend .u-mask, .u-mask--white;
+  }
+
+  &__body {
+    @extend .card-body;
+
+  }
+
+  &__title {
+    @extend .card-title;
+  }
+
+  &__subtitle {
+    @extend .card-subtitle, .mb-2, .text-muted;
+  }
+
+  &__text {
+    @extend .card-text;
+    //min-height: 15rem;
+  }
+
+  &__footer {
+    @extend .card-footer;
+
+    small {
+      @extend .text-muted;
+    }
+  }
+}

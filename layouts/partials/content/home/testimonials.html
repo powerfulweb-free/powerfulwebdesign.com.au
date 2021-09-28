@@ -1,0 +1,42 @@
+
+{{- partial "background-image" (dict "page" .ctx "image" .params.bgImage "class" ".section--testimonials" "lazyload" true) -}}
+
+
+<section class="section section--testimonials bg-darken-img-7 lazyload">
+  <div class="container position-relative" data-aos="fade-up">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <div class="testimonials-swiper swiper-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            {{ range .params.cards }}
+            <div class="swiper-slide ">
+              <div class="testimonial-item text-center text-white">
+                <!-- <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> -->
+                <div class="mx-auto">
+                  {{ partial "image.html" (dict "page" $.ctx "src" .image "layout" "fixed" "width" 90 "class" "border border-5 rounded-circle" "title" "Customer Image" "style" "border-color: rgba(255, 255, 255, 0.45) !important; box-sizing: content-box;") }}
+                </div>
+
+                <h3 class="fs-5 fw-bold mt-2 mb-1 text-white">{{ .name }}</h3>
+                <h4 class="fs-6 mb-3 text-ddd">{{ .title }}</h4>
+                <p class="mb-3 text-eee"><em>
+                    <span class="text-0-4 fs-3">
+                      {{- partial "svg-font" (dict "svg" "icons/box/bxs-quote-alt-left") -}}
+                    </span>
+                    <span class="mx-1">
+                      {{- .content -}}
+                    </span>
+                    <span class="text-0-4 fs-3">
+                      {{- partial "svg-font" (dict "svg" "icons/box/bxs-quote-alt-right") -}}
+                    </span>
+                  </em>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+            {{ end }}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

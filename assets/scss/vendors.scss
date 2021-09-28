@@ -1,0 +1,15 @@
+@import "config";
+
+
+//SWIPER scss variables
+$themeColor: $primary; // #007aff !default;
+@import 'swiper/swiper';
+@import 'swiper/components/pagination/pagination';
+
+// Animate on scroll
+@import 'aos/src/sass/aos';
+
+
+
+
+

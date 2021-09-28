@@ -1,0 +1,50 @@
+#Header menu
+main:
+# - name: "Home1"
+#   url: "/"
+#   weight: 5
+
+# - name: "contact"
+#   url: "/contact/"
+#   weight: 5
+# - name: "contact info"
+#   url: "/contact/info/"
+#   weight: 5
+
+- name: "Home"
+  url: "/#top"
+  weight: 10
+  params:
+    anchor: "#top"
+
+- name: "About Us"
+  url: "/#about"
+  weight: 20
+  params:
+    anchor: "#about"
+
+- name: "Benefits"
+  url: "/#services"
+  weight: 30
+  params:
+    anchor: "#services"
+
+- name: "Pricing"
+  url: "/#pricing"
+  weight: 40
+  params:
+    anchor: "#pricing"
+
+- name: "Contact Us"
+  url: "/#contact"
+  weight: 50
+  params:
+    anchor: "#contact"
+
+
+
+
+
+
+
+

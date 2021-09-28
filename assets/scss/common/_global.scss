@@ -1,0 +1,149 @@
+// .content {
+//   padding-top: 1rem;
+//   padding-bottom: 1rem;
+// }
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// .h1,
+// .h2,
+// .h3,
+// .h4,
+// .h5,
+// .h6 {
+//   margin: 2rem 0 1rem;
+// }
+
+// @include media-breakpoint-up(md) {
+//   body {
+//     font-size: $font-size-md;
+//   }
+
+//   .content {
+//     padding-top: 2rem;
+//     padding-bottom: 2rem;
+//   }
+
+//   h1,
+//   h2,
+//   h3,
+//   h4,
+//   h5,
+//   h6,
+//   .h1,
+//   .h2,
+//   .h3,
+//   .h4,
+//   .h5,
+//   .h6 {
+//     margin-bottom: 1.125rem;
+//   }
+// }
+
+// @include media-breakpoint-up(lg) {
+//   .content {
+//     padding-top: 3rem;
+//     padding-bottom: 3rem;
+//   }
+// }
+
+// .section {
+//   background: $gray-200;
+//   padding-top: 5rem;
+//   padding-bottom: 5rem;
+// }
+
+// .section p,
+// .section a {
+//   margin: 0;
+//   text-align: center;
+// }
+
+// .section svg {
+//   display: inline-block;
+//   width: 2rem;
+//   height: 2rem;
+//   vertical-align: text-top;
+// }
+
+// .monospace {
+//   font-family: $font-family-code;
+// }
+
+// !important needed to override bs5 color
+// create mixin with defined variables ??
+// .hover {
+//   &-primary {
+//     &:hover { color: $primary !important; }
+//     &-bg {
+//       &:hover { background: $primary !important;}
+//     }
+//   }
+//   &-secondary {
+//     &:hover { color: $secondary !important; }
+//     &-bg {
+//       &:hover { background: $secondary !important;}
+//     }
+//   }
+// }
+
+/* 
+* _global.scss
+*/
+
+$hoverColors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'body': $body-bg,
+);
+
+@each $key, $value in $hoverColors {
+  .hover {
+    &-#{$key} {
+      &:hover {
+        color: $value !important;
+      }
+    }
+    &-bg-#{$key} {
+      &:hover {
+        background: $value !important;
+      }
+    }
+  }
+}
+@for $i from 1 to 5 {
+  .z-#{$i} {
+    z-index: $i;
+  }
+}
+// darken background-image or bg by overlaying transparent black
+@for $i from 1 to 9 {
+  .bg-darken {
+    &-#{$i} {
+      background: rgba(0, 0, 0, ($i/10));
+    }
+    &-img-#{$i} {
+      position: relative;
+      &:before {
+        content: '';
+        background: rgba(0, 0, 0, ($i/10));
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+@for $i from 1 to 8 {
+  .transition-#{$i} {
+    transition: 0.1s * $i
+  }
+}
+

@@ -1,0 +1,51 @@
+{{/*- ARRAY (int) - bootstrap breakpoints (px) (first is above and below, the rest are above) -*/}}
+{{- $bp := (slice 576 768 992 1200 1400) -}}
+{{/* VARIABLE (int) pixels to add above the last breakpoint */}}
+{{- $extra := 200 -}}
+<style>
+{{/* CSS -  add classes for generic BG image */}}
+.section{{- $.class | safeCSS }} {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+{{- with .page.Resources.GetMatch (printf "**%s**" .image ) -}}
+{{- $resource := . -}}
+.js {{ $.class | safeCSS }} {
+  background-image: none;
+  background-color: rgba(0, 0, 0, 0.4);    
+}   
+{{/* LOOP over $bp breakpoints and create ARRAY of required image widths */}}
+{{- $imgWidths  := slice -}}
+{{- range $bp -}}
+{{- $imgWidths  = $imgWidths  | append (sub . 1) -}}
+{{- end -}}
+{{- $lastBp := index $bp (sub (len $bp) 1) -}}
+{{- $imgWidths  = $imgWidths  | append (add $lastBp $extra) -}}
+{{/* LOOP over $bp breakpoints and create ARRAY of css widths */}}
+{{- $cssWidths := slice -}}
+{{- $cssWidths = $cssWidths | append (sub (index $bp 0) 1) -}}
+{{- range $bp -}}
+{{- $cssWidths = $cssWidths | append . -}}
+{{- end -}}
+{{/* LOOP over image widths and create resized images with associated css */}}
+{{- $count := 0 -}}
+{{- range $imgWidths -}}
+{{- $img := $resource.Resize (printf "%vx" . ) -}}
+{{- $imgWebp := $resource.Resize (printf "%vx webp" . ) -}}
+{{- $widthType := "min" -}}
+{{- if eq $count 0 -}}
+{{- $widthType = "max" -}}
+{{- end -}}
+@media ({{- $widthType -}}-width: {{printf "%vpx" (index $cssWidths $count)}}) {
+  .no-js, .js.no-webp {{ $.class | safeCSS -}}{{- if $.lazyload -}}.lazyloaded{{ end }} {
+    background-image: url('{{ $img.RelPermalink }}')
+  }
+  .js.webp {{ $.class | safeCSS -}}{{- if $.lazyload -}}.lazyloaded{{ end }} {
+    background-image: url('{{ $imgWebp.RelPermalink }}')
+  }
+}
+{{ $count = add $count 1 -}}
+{{ end }}
+{{- end -}}
+</style>

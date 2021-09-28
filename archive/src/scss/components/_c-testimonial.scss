@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------
+# Testimonials - Module
+--------------------------------------------------------------*/
+
+.swiper-container {
+  @extend .col-md-8,
+  .col-12; //constrain size
+}
+
+.c-testimonial {
+  @extend .ms-5,
+  .mb-2,
+  .me-2; // mb&me need to be greater than shadow size, ms accounts for photo
+  @extend .ps-5,
+  .py-4,
+  .pe-4; //ps accounts for 1/2 of photo
+  min-height: 200px;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.08);
+  position: relative;
+  @extend .bg-body;
+
+  &__image {
+    width: 5.5rem;
+    //border-radius: 10px;
+    @extend .rounded-3;
+    border: 6px solid $body-bg;
+    position: absolute;
+    left: -2.8rem;
+  }
+
+  &__name {
+    @extend .my-2;
+  }
+
+  // &__title {
+  // }
+
+  &__comment {
+    @extend .my-3;
+    @extend .mx-auto;
+  }
+
+  &__text {
+    @extend .ms-3;
+    @extend .fst-italic;
+  }
+
+}
+
+
+
+// @include media-breakpoint-down(md) {
+//   .testimonial {
+//       padding: 30px;
+//       margin: 15px;
+    
+//     &__image {
+//       position: static;
+//       left: auto;
+//     }
+
+//   }
+// }

@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{ partial "content/home/hero.html" (dict "params" .Params.hero "ctx" . )}}
+<main id="main">
+  {{ partial "content/home/why-us.html" (dict "params" .Params.whyUs "ctx" . )}}
+  {{ partial "content/home/about.html" (dict "params" .Params.about "ctx" . )}}
+  {{ partial "content/home/services.html" (dict "params" .Params.services "ctx" . )}}
+  {{/* partial "content/home/values.html" (dict "params" .Params.values "ctx" . ) */}}
+  {{ partial "content/home/testimonials.html" (dict "params" .Params.testimonials "ctx" . )}}
+  {{ partial "content/home/pricing.html" (dict "params" .Params.pricing "ctx" . )}}
+  {{ partial "content/home/faq.html" (dict "params" .Params.faq "ctx" . )}}
+  {{ partial "content/home/contact.html" (dict "params" .Params.contact "ctx" . )}}
+</main>
+{{/* partial "home/hero.html" . }}
+{{ partial "home/services.html" . }}
+{{ partial "home/details.html" . }}
+{{ partial "home/pricing.html" . }}
+{{ partial "home/testimonials.html" . }}
+{{ partial "home/contact.html" . */}}
+
+{{ end }}
+
+

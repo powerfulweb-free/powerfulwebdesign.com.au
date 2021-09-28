@@ -1,0 +1,17 @@
+{{/* 
+{{ partial "components/c-social-links2.html" (dict "class" "me-2 mb-2 text-primary" "size" "16px" "id" "unique") }}
+*/}}
+{{/* used site instead of $.Site inside with as $ not available from within nested partial unless passed explicitly */}}
+
+<!--  -->
+{{ range . }}
+{{ if not .draft}}
+<a role="button" 
+  href="{{ .url }}" 
+  class="d-inline-block p-2 m-1 border border-2 rounded-circle border-primary text-primary fs-3" 
+  target="_blank" 
+  rel="noopener">
+  {{ partial "svg-font.html" (dict "svg" .icon "block" true "em" 1) }}  
+</a>
+{{ end }}
+{{ end }}

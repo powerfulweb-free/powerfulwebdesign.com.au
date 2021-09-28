@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="mt-5">&nbsp;</div>
+<div class="container mt-3">
+  <div class="row">
+    <h2 class="section__title">{{ .Title }}</h2>
+    {{ with .Params.subtitle }}
+    <div class="section__subtitle">{{ . | markdownify}}</div>
+    {{ end }}
+  </div>
+  <div class="row">
+    <div class="section__content">
+      {{ .Content | markdownify }}
+    </div>
+  </div>
+</div>
+{{ end }}

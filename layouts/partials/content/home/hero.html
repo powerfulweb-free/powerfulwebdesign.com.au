@@ -1,0 +1,18 @@
+{{- partial "background-image" (dict "page" .ctx "image" .params.bgImage "class" ".section--hero" ) -}}
+<section
+  class="section section--hero d-flex flex-column justify-content-center align-items-center p-0 vh-100 w-100 bg-darken-img-5" 
+  style="margin-bottom: -200px;">
+  <div class="container" data-aos="fade-in">
+    <h1 class="text-white mb-2 fs-2 fw-bolder">{{ .params.title }}</h1>
+    <h2 class="mb-5 fs-4 text-eee">{{ .params.subtitle }}</h2>
+    <div class="d-flex align-items-center">
+      <!-- <i class="bx bxs-right-arrow-alt z-1 shadow-lg rounded-circle text-white p-3 bg-primary fs-2"></i> -->
+      <div class="z-1 shadow-lg rounded-circle text-white p-3 bg-primary fs-2">
+        {{ partial "svg-font" (dict "svg" "icons/box/bxs-right-arrow-alt" "em" 1 "block" true )}}
+      </div>
+      <a href="#why-us" 
+      class="bg-secondary d-inline-block ms-n4 py-2 pe-4 ps-5 text-white rounded-pill hover-bg-primary transition-5">
+      Get Started</a>
+    </div>
+  </div>
+</section>

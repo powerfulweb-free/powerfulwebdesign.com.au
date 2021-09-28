@@ -1,0 +1,4 @@
+module:
+  replacements: |-
+    github.com/powerfulweb/hugo-common -> ../../../powerfulweb/hugo-common, 
+    github.com/powerfulweb/image-mod-hugo -> ../../../powerfulweb/image-mod-hugo

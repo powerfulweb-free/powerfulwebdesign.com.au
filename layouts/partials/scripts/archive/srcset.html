@@ -1,0 +1,244 @@
+{{/* RESIZE RESOURCE IMAGES, THEN CREATE SRCSET TAGS. ENABLE LAZY LOADING NATIVE/JS AND NOSCRIPT SUPPORT */}}
+{{/* USE {{ partial "scripts/srcset.html" (dict "page" $ "image" "image_name")}}  - folder and file extension not required
+{{<srcset image="spf13">}} - folder or extension not required
+
+override resource params
+{{ partial "scripts/srcset.html" (dict "page" $ "image" "image_name" "title" "img alt/title" "alt" "defaults to title" "width" "cols or thumbs" "max" 350 "px" 100 "figure" bool "figureTitle" "figtitle ovverride" "class" "class additions" "style" "inline styles")}}
+
+*/}}
+{{/* .md file must have resources set up including 
+resources:
+  - src: ""  # (e.g. images/testimonials*), 
+    title: "" # (used for alt/title text),
+    # name: "" #(optional override, defaults to file name), 
+    params: 
+      # class: " " #(optional)
+      # alt: "" # (defaults to title)
+      # eager: true# (for above the fold)
+      # figure: true #(Add title below image)
+      # width: thumbs/cols/(null - full)
+
+optional config override in params
+#SRCSET PHOTO RESIZE CONFIG (optional)
+photoResize:
+  widthsFull:
+  - 535
+  - 696
+  - 936
+  - 1140
+  - 1296
+  widthsCols:
+  - 178
+  - 279
+  - 372
+  - 468
+  - 558
+  - 648
+  widthsThumbs:
+  - 32
+  - 72
+  - 96
+  - 166
+  - 196
+
+      
+*/}}
+
+
+
+
+{{ with .page.Resources.GetMatch (printf "**%s**" .image ) }}
+{{/* only if valid input */}}
+  {{ $image := . }}
+
+  {{ $widthsCols := (slice 648 558 468 377 279 178) }}
+  {{ $widthsThumbs := (slice 196 166 96 72 32) }}
+  {{ $widthsFull := (slice 1320 1140 1320 1140 936 696 535) }}
+
+  {{ $lqipGif := $image.Resize "32x gif" -}}
+  {{ $lqipWebp := $image.Resize "32x webp" -}}
+  {{ if $.square }}
+    {{ $lqipGif = $image.Resize "32x32 gif" -}}
+    {{ $lqipWebp = $image.Resize "32x32 webp" -}}
+  {{ end }}
+  {{ $lqipGif = $lqipGif.Filter (images.GaussianBlur 4) }}
+  {{ $lqipWebp = $lqipWebp.Filter (images.GaussianBlur 4) }}
+  {{ $lqipGif = $lqipGif.Content | base64Encode }}
+  {{ $lqipWebp = $lqipWebp.Content | base64Encode }}
+  
+  {{ $widths := ""}}
+  {{ $widthString := $.width | default $image.Params.width }}
+  <!-- change widths based on resource params  site used rather than .Site to avoid context issues -->
+  {{ if eq $widthString "cols" }}
+    {{ $widths = site.Params.photoResize.widthsCols | default $widthsCols}}
+  {{ else if eq $widthString "thumbs" }}
+    {{ $widths = site.Params.photoResize.widthsThumbs | default $widthsThumbs }}
+  {{ else }}
+    {{ $widths = site.Params.photoResize.widthsFull | default $widthsFull  }}
+  {{ end }}
+
+
+  {{ if $.max }}
+    {{ $divs := (slice 1 0.861 0.722 0.537 0.425)}}
+    {{ $widths = slice }}
+    {{ range $divs }}
+      {{ $widths = $widths | append (mul $.max .  | int) }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $.px }}
+    {{ $mul := (slice 1 2 3) }}
+    {{ $widths = slice }}
+    {{ range $mul }}
+      {{ $widths = $widths | append (mul $.px . ) }}
+    {{ end }}
+  {{ end }}
+
+
+
+  <!--
+    Add URL for each width to $imgSrcSet variable
+    format: "/path/img_1000.jpg 1000w,/path/img_500.jpg 500w"
+    Note: the first URL is used as "fallback" src in $imgSrc.
+  -->
+  
+  {{ $imgSrcSet := slice }}
+  {{ $imgSrcSetWebp := slice }}
+  {{ $img := "" }}
+  {{ $imgSrc := "" }}
+  {{ $imgSrcWebp := "" }}
+  {{ $count := 1 }}
+  {{ range $widths }}
+    {{/* NON-WEBP - extra step $src */}}
+    {{ $src := $image.Resize (printf "%dx" . ) }}
+    {{ $srcUrl := $src.RelPermalink }}
+    {{ if $.square }}
+      {{ $srcUrl = ($image.Resize (printf "%dx%d" . . )).RelPermalink }}
+    {{ end }}
+    {{ if eq $imgSrc "" }}
+      {{/*  first(largest size) becomes fallback image  */}}
+      {{ $img = $src }}
+      {{ $imgSrc = $srcUrl }}
+    {{ end }}
+    
+    {{ if $.px }}
+      {{ $imgSrcSet = $imgSrcSet | append (printf "%s %dx" $srcUrl $count) }}
+    {{ else }}
+    {{ $imgSrcSet = $imgSrcSet | append (printf "%s %dw" $srcUrl .) }}
+    {{ end }}
+    {{/* WEBP */}}
+    {{ $srcUrlWebp := (printf "%dx webp" . | $image.Resize).RelPermalink }}
+    {{ if $.square }}
+      {{ $srcUrlWebp = ($image.Resize (printf "%dx%d" . . )).RelPermalink }}
+    {{ end }}
+    {{ if eq $imgSrcWebp "" }}
+      {{/*  first(largest size) becomes fallback image  */}}
+      {{ $imgSrcWebp = $srcUrlWebp }}
+    {{ end }}
+    
+    {{ if $.px }}
+      {{ $imgSrcSetWebp = $imgSrcSetWebp | append (printf "%s %dx" $srcUrlWebp $count) }}
+    {{ else }}
+    {{ $imgSrcSetWebp = $imgSrcSetWebp | append (printf "%s %dw" $srcUrlWebp .) }}
+    {{ end }}
+    {{ $count = add $count 1 }}
+  {{ end }}
+  {{ $imgSrcSet = (delimit $imgSrcSet ",") }}
+  {{ $imgSrcSetWebp = (delimit $imgSrcSetWebp ",") }}
+  
+
+
+
+  {{/*  OUTPUT HTML  */}}
+  {{/*  set vars for html tags  */}}
+  {{ $title := $.title | default $image.Title }}
+  
+  {{ $figureTitle := $.figureTitle | default $title }}
+  {{ $figure := $.figure | default $image.Params.figure }}
+  {{ $class := (printf "%s %s" ($image.Params.class | default "") ($.class | default ""))}}
+  {{ $eager := $.eager | default $image.Params.eager }}
+  {{ $style := $.style | default $image.Params.style }}
+  {{ with $.alt }}
+  {{ $alt := . }}
+  {{ else  }}
+  {{ $alt := $image.Params.alt | default $title }}
+  {{ end }}
+  
+
+  {{- if $figure -}}
+    <figure class="figure">
+  {{- end -}}
+  
+  <picture>
+    <source type="image/webp"
+      {{ if $eager }} 
+      srcset="{{- $imgSrcSetWebp -}}"
+      {{ else }}
+      srcset="data:image/webp;base64,{{- $lqipWebp -}}"
+      data-srcset="{{- $imgSrcSetWebp -}}"
+      {{ end }}
+      {{ if not $.px }}
+      data-sizes="auto"
+      {{ end }}>
+    <source type="{{ $image.MediaType }}"
+      {{ if $eager }} 
+      srcset="{{- $imgSrcSet -}}"
+      {{ else }}
+      data-srcset="{{- $imgSrcSet -}}"
+      srcset="data:image/gif;base64,{{- $lqipGif -}}"
+      {{ end }}
+      {{ if not $.px }}
+      data-sizes="auto"
+      {{ end }}>
+    <img alt="{{ $title }}" 
+      title="{{ $title }}"
+      class="lazyload {{ $class }}" 
+      {{ with $style}}
+      style="{{ . | safeCSS }}"
+      {{ end }}
+      {{ if not $.px }}
+      data-sizes="auto"
+      {{ end }}
+      {{ if $eager }} 
+      loading="eager"
+      srcset="{{- $imgSrcSet -}}"
+      {{ else }}
+      loading="lazy"
+      data-srcset="{{- $imgSrcSet -}}"
+      srcset="data:image/gif;base64,{{- $lqipGif -}}"
+      {{ end }}
+      src="{{ $imgSrc }}"
+      decoding="async"
+      {{ if $.px }}
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}"
+      {{ end }}
+      {{ $.data | safeHTMLAttr }} />
+  </picture>
+ 
+  <noscript>
+    <img alt="{{ $title }}" 
+      title="{{ $title }}"
+      {{ if $.px }}
+      width="{{ $img.Width }}"
+      height="{{ $img.Height }}"
+      class="{{ $class }}"
+      {{ else }}
+      class="img-fluid {{ $class }}"
+      {{ end }}
+      {{ with $style}}
+      style="{{ . | safeCSS }}"
+      {{ end }}
+      src="{{ $imgSrc }}" />
+  </noscript>
+  
+  {{ if $figure -}}
+  <figcaption class="figure-caption">{{ $figureTitle }}</figcaption>
+  </figure>
+  {{ end }}
+
+
+
+{{ else }}
+<img src="https://via.placeholder.com/1200" alt="no image provided" class="img-fluid" />
+{{ end }}

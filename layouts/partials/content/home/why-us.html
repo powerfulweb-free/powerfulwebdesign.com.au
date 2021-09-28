@@ -1,0 +1,33 @@
+<section id="why-us" class="section section--why-us pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4" data-aos="fade-up">
+        <div class="card border-0 shadow p-4 bg-primary text-white"> 
+          <h3 class="mb-4 h2 text-white fw-bold">{{ .params.main.title }}</h3>
+          <p class="mb-5 mt-4 mx-1">{{ .params.main.subtitle }}</p>
+          <div class="text-center">
+            <a href="#services" class="btn btn-secondary">Learn More <i class="bx bx-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 d-flex">
+        <div class="icon-boxes d-flex flex-column justify-content-end">
+          <div class="row">
+            {{ range .params.cards }}
+            <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon-box mt-4 mt-xl-0 px-4 py-5 card border-0 bg-white shadow text-center">
+                <!-- <i class="{{ .icon }} h1 mb-4 text-primary"></i> -->
+                <div class="fs-1 mb-4 text-primary mx-auto">
+                  {{ partial "svg-font" (dict "svg" .icon "em" 2 "block" true)}}
+                </div> 
+                <h4 class="h5 fw-bolder mb-4">{{ .title }}</h4>
+                <p>{{ .content }}</p>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

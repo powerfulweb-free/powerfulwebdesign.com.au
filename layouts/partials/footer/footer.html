@@ -1,0 +1,30 @@
+<footer>
+  <!-- non mobile footer -->
+  <div class="container-fluid d-none d-sm-block footer footer--desktop">
+    <div class="row bg-dark text-light pb-2 pt-1 d-flex justify-content-between">
+      <div class="col-auto small align-items-center pt-2">
+        {{ .Site.Title }} &nbsp;&copy;&nbsp;<span id="year">&nbsp;</span>
+      </div>
+      <div class="col-auto small">Made with power 
+        <span class=" fs-5 text-secondary">{{- partial "svg-font.html" (dict "svg" "icons/bootstrap/lightning-fill") -}}</span> in Sydney, Australia
+      </div>
+    </div>
+  </div>
+  <!-- mobile footer -->
+  {{ with .Site.Params.mobileFooter.URL }}
+  <div class="d-grid d-sm-none fixed-bottom footer footer--mobile">
+    <a href="{{- . -}}" class="btn btn-success text-white rounded-0 d-flex align-items-center justify-content-center"
+      role="button">
+      <span class="fs-2">
+        {{- partial "svg-font.html" (dict "svg" site.Params.mobileFooter.icon) -}}
+      </span>
+      <span class="ps-2 fs-4">
+        {{- site.Params.mobileFooter.text -}}
+        <span>
+    </a>
+  </div>
+  {{ end }}
+  <script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+  </script>
+</footer>

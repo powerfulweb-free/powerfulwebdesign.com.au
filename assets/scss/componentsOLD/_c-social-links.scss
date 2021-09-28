@@ -1,0 +1,18 @@
+.c-social-links {
+  //@extend .d-flex;
+
+  &__btn-svg {
+    // @extend .text-primary, .m-2, .p-2;
+    // @extend .icon, .icon-outline-3;
+    @extend .o-btn-svg, .o-btn-svg--outline-primary;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display:inline-block;
+    //@extend .o-btn-svg--lg;
+  }
+
+  // &__sprite {
+  //   // @extend .sprite, .sprite-4; 
+  //   // @extend .text-primary, .bg-body;
+  // }
+}

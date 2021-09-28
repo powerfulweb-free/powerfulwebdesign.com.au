@@ -1,0 +1,25 @@
+<section class="section section--values">
+  <div class="container">
+    <div class="row">
+      {{ range .params.cards }}
+      <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+        <div class="card mb-3 border-0 pb-3 px-4" 
+        style="background-image: url({{- .image -}});
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+          padding-top: 10rem;">
+          <div class="card-body px-3 py-4 shadow rounded-3">
+            <h5 class="card-title text-center fw-bolder mb-3">{{ .title }}</h5>
+            <p class="card-text">{{ .content }}</p>
+            {{ with .readMore }}
+            <div class="read-more text-uppercase fw-bold small"><a href="{{ . }}"><i class="bi bi-arrow-right"></i> Read More</a></div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+     
+    </div>
+  </div>
+</section>

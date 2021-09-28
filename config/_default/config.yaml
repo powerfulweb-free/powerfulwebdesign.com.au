@@ -1,0 +1,100 @@
+title: "Powerful Web Design"
+module:
+  imports:
+  - path: github.com/powerfulweb/hugo-common
+  - path: github.com/future-wd/hugo-svg-font
+  - path: github.com/future-wd/hugo-image
+
+baseurl: "https://www.powerfulwebdesign.com.au"
+
+
+#buildDrafts: true #(false)
+#buildExpired: true #(false)
+#buildFuture: true #(false)
+
+#defaultContentLanguage: "en"  #default en 
+#Content without language indicator will default to this language.
+#defaultContentLanguageInSubdir: true #(false)
+#Render the default content language in subdir, e.g. content/en/. The site root / will then redirect to /en/.
+
+#disableAliases #(false) Will disable generation of alias redirects.
+# removes rss feed, and taxonomy/categories folders
+disableKinds: ["RSS", "taxonomy", "taxonomyTerm"]
+#disablePathToLower (false)
+#enableEmoji: true  #default false
+#enableGitInfo: true # default false  Enable .GitInfo object for each page
+# This will then update the Lastmod parameter for each page using the last git commit date for that content file.
+#enableInlineShortcodes (false)
+enableRobotsTXT: true # (false)
+# googleAnalytics: G-6TWF0Q2CL5
+
+googleAnalytics: UA-183628328-1
+
+# defaultContentLanguage: en
+# languages:
+#   es:
+#     title: titulo
+#     weight: 2
+#     languageCode: es-ES
+#   en:
+#     title: My blog
+#     weight: 1
+#     languageCode: en-AU
+languageCode: "en-AU"  # needs hyphen e.g. en-AU 
+# use {{ substr .Site.LanguageCode 0 2 }} to get the first 2 letters e.g. en
+languageName: "English"
+#disableLanguages
+
+
+#log (false)
+# logFile ("")
+# Log File path (if set, logging enabled automatically).
+
+# paginate: 7
+# paginatePath #(“page”)
+#pluralizeListTitles #(true)
+# rssLimit: 10
+
+
+
+
+
+markup:
+  goldmark:
+    # extensions:
+    #   definitionList: true
+    #   footnote: true
+    #   linkify: true
+    #   strikethrough: true
+    #   table: true
+    #   taskList: true
+    #   typographer: true
+    # parser:
+    #   attribute:
+    #     block: false
+    #     title: true
+    #   autoHeadingID: true
+    #   autoHeadingIDType: github
+    renderer:
+      # hardWraps: false
+      # unsafe: false #enable for inline html
+      unsafe: true #enable for inline html
+      # xhtml: false
+
+
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
+
+#[taxonomies]
+ # category: "categories"
+
+#[permalinks]
+ # blog: "/:title/"
+
+
+imaging: #HUGO mage processing config
+  quality: 85 # default 75
+  bgColor: "#fff" # transparency will be maintained but will fall back to this color for JPEG.
+

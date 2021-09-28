@@ -1,0 +1,26 @@
+{
+  "name": "@powerfulweb/contact-form-xhr",
+  "version": "1.0.1",
+  "description": "Sends all form fields via XHR and prints server response message",
+  "main": "src/index.js",
+  "scripts": {
+    "release": "standard-version",
+    "git push tags": "git push --follow-tags origin main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/powerfulweb/contact-form-xhr"
+  },
+  "keywords": [
+    "JavaScript",
+    "contact",
+    "form",
+    "XHR"
+  ],
+  "author": "Powerful Web Design",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "standard-version": "^9.3.1"
+  }
+}

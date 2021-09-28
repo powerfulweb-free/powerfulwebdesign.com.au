@@ -1,0 +1,28 @@
+<section  class="section section--contact">
+  <div class="section__title" data-aos="fade-up">
+    <h2 id="contact">{{ .params.title }}</h2>
+  </div>
+
+  
+  <div class="row justify-content-center m-2">
+    <!-- INTRO TEXT AND SOCIAL LINKS -->
+    <div class="col-lg-4 col-md-6" data-aos="zoom-in-left" data-aos-delay="200">
+      {{ with .params.subtitle }}<h3 class="mb-3">{{ . }}</h3>{{ end }}
+      {{ with .params.content }}<div class="content">{{- . | markdownify -}}</div>{{ end }}
+      {{ partial "content/contact-social" site.Params.socialButtons }}
+    </div>
+    <!-- CONTACT DETAILS -->
+    <div class="col-lg-4 col-md-6 mt-2 mt-md-0 p-2" data-aos="zoom-in" data-aos-delay="200">
+      {{ partial "content/contact-details.html" .params.details }}
+    </div>
+    <!-- QUOTE FORM -->
+    <div id="quote" class="col-lg-4   col-md-12" data-aos="zoom-in-right" data-aos-delay="200">
+      {{ with .params.form.title }}
+      <h3>{{ . }}</h3>
+      {{ end }}
+      {{ partial "content/contact-form" .params.form }}
+    </div> <!-- END CONTACT FORM-->
+
+    
+  </div>  
+</section>

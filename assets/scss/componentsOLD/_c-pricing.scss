@@ -1,0 +1,80 @@
+.c-pricing {
+
+  &__wrapper {
+
+    &--outer {
+      @extend .row, .justify-content-center;
+    }
+
+    &--inner {
+      @extend .col-lg-4, .col-sm-6, .py-3;
+    }
+  }
+
+  @extend .m-3, .h-100, .text-center, .bg-gray-light, .card;
+
+  &--recommended {
+    border: 2px solid $primary;
+
+    .btn-outline-primary {
+      @extend .btn-primary;
+    }
+  }
+
+  &--hover {
+    // border: 2px solid transparent;
+
+    &:hover {
+      border-color: $primary;
+      @extend %u-transition;
+
+      .btn-outline-primary {
+        @extend .btn-primary;
+        @extend %u-transition;
+      }
+    }
+  }
+
+  &__title {
+    @extend .mt-3, .p-3;
+  }
+
+  &__prefix {
+    margin-bottom: 0.7rem;
+  }
+
+  &__price {
+    @extend .fs-1, .text-primary;
+    font-weight: 500;
+
+    sup {
+      font-size: 1.4rem;
+      top: -1rem;
+      //left: -.2rem;
+    }
+  }
+
+  span {
+    @extend .text-body, .fs-6;
+  }
+
+  button {
+    @extend .btn, .btn-outline-primary, .m-3;
+  }
+
+  &__list {
+    @extend .list-group, .border-0;
+  }
+
+  &__list-item {
+    @extend .list-group-item, .border-0, .bg-transparent;
+
+    &--active {
+      //empty
+    }
+
+    &--disabled {
+      @extend  .disabled, .text-decoration-line-through;
+    }
+  }
+}

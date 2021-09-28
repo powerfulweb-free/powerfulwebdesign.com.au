@@ -1,0 +1,71 @@
+/* ============================= 
+    NAVBAR 1
+================================ */
+.navbar {
+  .navbar-brand {
+    font-weight: 700;
+
+    img {
+      //max-height: 3rem;
+      //max-width: 180px;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .navbar {
+    //z-index: 99;
+    padding: 0;
+
+    .navbar-nav {
+      .nav-item {
+        a {
+          // var font-weight: 500;
+          padding: 1.8rem 1rem; //EXPANDED PADDING
+          @include transition(0.3s);
+          //z-index: 1;
+          border-bottom: 2px solid transparent;
+
+          &:hover {
+            background: rgba($primary, .2);
+            color: $primary;
+            border-color: $primary;
+          }
+
+          &.active {
+            background: rgba($gray-400, .2);
+            color: $secondary;
+            border-color: $secondary;
+          }
+        }
+        .dropdown-menu {  //removed default padding top and bottom of drop down wrapper
+          padding: 0;
+        }
+      }
+    }
+  }
+  // .sticky-expanded {
+  //   .navbar-nav {
+  //     .nav-item {
+  //       a {
+  //         // var font-weight: 500;
+  //         padding: 1.8rem 1rem; //EXPANDED PADDING
+  //         @include transition(0.3s);
+  //       }
+  //     }
+  //   }
+  // }
+  .sticky-collapse {
+    //z-index: 99;
+    box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05) !important;
+    .navbar-nav {
+      .nav-item {
+        a {
+          padding: 1rem 1rem;
+          @include transition(0.3s);
+        }
+      }
+    }
+  }
+
+}

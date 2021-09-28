@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="row justify-content-center">
+  <div class="col-lg-7">
+    <h2 class="page__title " data-aos="fade-up">{{ .Title }}</h2>
+    {{ with .Params.subTitle }}
+      <div class="page__subtitle">{{ . | markdownify}}</div>
+    {{ end }}
+    {{ $paginator := .Paginate (.Data.Pages) -}}
+    {{ range $paginator.Pages -}}
+    <article>
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      {{ .Description }}
+    </article>
+    {{ end -}}
+    {{ template "_internal/pagination.html" . -}}
+  </div>
+</div>
+{{ end }}

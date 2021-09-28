@@ -1,0 +1,51 @@
+/*--------------------------------------------------------------
+# Services Detail
+--------------------------------------------------------------*/
+.c-detail-wrapper {
+  @extend .col-sm-6, .col-xl-5,
+  .d-flex,
+  .align-items-stretch,
+  .mt-4;
+}
+
+.c-detail {
+  @extend .card,
+  .px-4,
+  .pb-4,
+  .pt-12;
+  @extend .bg-img; //the child image tag will become the background
+
+  &__block {
+    @extend .shadow,
+    .overlay,
+    .transition;
+    min-height: 13rem;
+    @extend .py-3,
+    .px-4,
+    .rounded-3,
+    .bg-body;
+
+    &:hover {
+      @extend .bg-primary;
+      color: $body-bg;
+    }
+  }
+
+
+
+  // &__image {
+  // }
+
+  // &__title {
+  // }
+
+  // &__content {
+  // }
+
+  &__read-more {
+    @extend .fw-bold,
+    .text-end;
+    @extend .link-no-decoration;
+    color: $gray-500;
+  }
+}

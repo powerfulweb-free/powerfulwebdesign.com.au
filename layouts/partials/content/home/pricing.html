@@ -1,0 +1,50 @@
+<section id="pricing" class="section section--pricing">
+  <div class="container-xxl">
+
+    <div class="section__title">
+      <h2 data-aos="fade-up">{{ .params.title }}</h2>
+      <p data-aos="fade-up">{{ .params.content }}</p>
+    </div>
+
+    <div class="row">
+      {{ range .params.cards }}
+      <div class="col-lg-3 col-sm-6 pb-3" data-aos="fade-up">
+        <div class="card shadow bg-white h-100 text-center ">
+          {{ with .angle }}<span class="advanced">{{ . }}</span>{{ end }}
+          <div class="card-header{{ if .featured}} bg-primary{{ end }} pt-3 pb-2">
+            <h3 class="h4 fw-bold">{{ .title }}</h3>
+          </div>
+          <div class="card-body pb-0">
+            <div class="container mb-3">
+              <div class="row align-items-end">
+                <div class="col px-1">
+                  <div class="text-end text-muted">{{ .pricePrefix }}</div>
+                </div>
+                <div class="col-auto px-1">
+                  <div class="h2 mb-0 text-primary fw-bold"><sup>$</sup>{{ .price }}</div>
+                </div>
+                <div class="col px-1">
+                  <div class="text-start text-muted">{{ .priceSuffix }}</div>
+                </div>
+              </div>
+            </div>
+            <ul class=" list-unstyled">
+              {{ range .inclusions }}
+              <li class="pb-3">{{ .li }}</li>
+              {{ end }}
+              {{ range .exclusions }}
+              <li class="text-muted pb-3"><s>{{ .li }}</s></li>
+              {{ end }}
+            </ul>
+          </div>
+          <div class="card-footer">
+            <div class="d-grid">
+              <a href="{{ .btnURL }}" class="btn btn-primary btn-lg rounded-1">{{ .btnText }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

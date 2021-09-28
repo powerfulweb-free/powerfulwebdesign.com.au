@@ -1,0 +1,54 @@
+/*--------------------------------------------------------------
+# Testimonials - moved to modules
+--------------------------------------------------------------*/
+.testimonials {
+
+  .splide__pagination__page.is-active {
+    background: $primary !important;
+  }
+
+  .testimonial-wrapper {
+    padding-left: 50px;
+    margin: 5px;  ///keeps shadow inside slide
+    //overflow: hidden;
+  }
+
+  .testimonial-item {
+    box-sizing: content-box;
+    padding: 30px 30px 30px 60px;
+    margin: 30px 15px;
+    min-height: 200px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+    background: $body-bg;
+
+    .testimonial-img {
+      width: 5.5rem;
+      border-radius: 10px;
+      border: 6px solid $body-bg;
+      position: absolute;
+      left: -45px;
+    }
+
+  }
+
+  @include media-breakpoint-down(md) {
+    .testimonials {
+      .testimonial-wrapper {
+        padding-left: 0;
+      }
+
+      .testimonial-item {
+        padding: 30px;
+        margin: 15px;
+
+
+        .testimonial-img {
+          position: static;
+          left: auto;
+        }
+      }
+    }
+  }
+
+}

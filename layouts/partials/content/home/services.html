@@ -1,0 +1,27 @@
+<section id="services" class="section section--services">
+  <div class="container">
+
+    <div class="section__title" data-aos="fade-up">
+      <h2>{{ .params.title }}</h2>
+      <p>{{ .params.subtitle }}</p>
+    </div>
+
+    <div class="row">
+      {{ range .params.cards }}
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="wrapper pt-4 pb-4 h-100">
+          <div class="card text-center h-100 pb-3 px-3 bg-white shadow align-items-center">
+            <div class="icon bg-primary text-white fs-2 p-3 border border-white border-2 rounded-circle"
+              style="margin-top: -36px;">
+              <!-- <i class="{{ .class }} fs-4 text-white"></i> -->
+              {{- partial "svg-font" (dict "svg" .icon "em" 1 "block" true) -}}
+            </div>
+            <h4 class="card-title fw-bolder h5 mt-1 text-uppercase">{{ .title }}</h4>
+            <p class="card-text">{{ .content }}</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

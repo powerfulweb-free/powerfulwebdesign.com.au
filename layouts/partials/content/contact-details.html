@@ -1,0 +1,90 @@
+{{/* {{ partial "content/c-contact-details2.html" .params.details }} */}}
+{{/* 
+partials: svg-font
+
+requires params in the parent page's markdown e.g.   
+details:
+  - text: 0411 587 374
+    url: tel:+61411587374
+    icon: icons/bootstrap/telephone.svg
+    newTab: false
+    draft: false
+  - text: caringbah@majesticskinclinic.com.au
+    url: mailto:mahsa@majesticskinclinic.com.au
+    icon: icons/bootstrap/envelope.svg
+    newTab: true
+    draft: false
+  - text: "@majestic_skinclinic"
+    url: https://www.instagram.com/majestic_skinclinic/
+    icon: icons/bootstrap/instagram.svg
+    newTab: true
+    draft: false
+  - text: |-
+      Shire Doctors & Dentists Medical Center
+      <br>Unit 6-11
+      <br>416 Kingsway
+      <br>Caringbah NSW 2229
+    url: https://goo.gl/maps/pXPYKRV54vHEjXLt6
+    icon: icons/bootstrap/geo-alt.svg
+    newTab: true
+    draft: false
+  - text: |-
+      <table>
+          <tr>
+            <td>Mon:</td>
+            <td>9am - 5pm</td>
+          </tr>
+          <tr>
+            <td>Tue:</td>
+            <td>9am - 5pm</td>
+          </tr>
+          <tr>
+            <td>Wed:</td>
+            <td>9am - 5pm</td>
+          </tr>
+          <tr>
+            <td>Thu:</td>
+            <td>9am - 5pm</td>
+          </tr>
+          <tr>
+            <td>Fri:</td>
+            <td>9am - 5pm</td>
+          </tr>
+          <tr>
+            <td>Sat:</td>
+            <td>By Appointment</td>
+          </tr>
+          <tr>
+            <td>Sun:</td>
+            <td>Closed</td>
+          </tr>
+        </table>
+    url: null
+    icon: icons/bootstrap/clock.svg
+    newTab: true
+    draft: false
+*/}}
+
+
+
+<div class="c-contact-details">
+  {{ range . }}
+    {{ if not .draft }}
+      <div class="d-flex flex-row align-middle">
+        <div class="d-flex align-items-center">
+          <div class="fs-4 text-primary me-2 my-2">
+          {{ partial "svg-font" (dict "svg" .icon "block" true) }} 
+          </div>
+        </div>
+        <div class=" d-flex align-items-center">
+          {{ $ctx := . }}
+          {{- with .url -}}
+          <a class="text-break text-decoration-none link-secondary" href="{{- . | safeURL -}}" 
+          {{- with $ctx.newTab -}} target="_blank" rel="noopener"{{- end -}}>{{- end -}}
+          {{- .text | markdownify -}}{{- with .url -}}</a>{{- end -}}
+        </div>
+      </div>
+    {{ end }}
+  {{ end }}
+</div>
+

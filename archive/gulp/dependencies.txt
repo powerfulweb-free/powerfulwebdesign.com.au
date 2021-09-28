@@ -1,0 +1,4 @@
+"gulp": "github.com/powerfulwebdesign/hugo_modules",
+    "gulp-cheerio": "github.com/powerfulwebdesign/hugo_modules",
+    "gulp-svg-sprite": "github.com/powerfulwebdesign/hugo_modules",
+    "gulp-svgo": "github.com/powerfulwebdesign/hugo_modules",

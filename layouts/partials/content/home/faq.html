@@ -1,0 +1,34 @@
+<section id="faq" class="section section--faq">
+  <div class="container">
+    <div class="section__title">
+      <h2 data-aos="fade-up">{{ .params.title}}</h2>
+      <p data-aos="fade-up">{{ .params.content }}</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="accordion accordion-flush" id="accordionFAQ">
+          {{ range $index, $element := .params.items }}{{ if not .draft }}
+          <div class="accordion-item my-3 border" data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">
+            <h2 class="accordion-header" id="heading-{{ $index }}">
+              <button class="accordion-button {{ if ne $index 99 }} collapsed{{ end }}" type="button"
+                data-bs-toggle="collapse" data-bs-target="#collapse-{{ $index }}" aria-expanded="true"
+                aria-controls="collapse-{{ $index }}">
+                <!-- <i class="bx bx-help-circle icon-help fs-3"></i>-->
+                <span class="fs-1 me-3 text-primary">{{ partial "svg-font" (dict "svg" "icons/bootstrap/question-circle" "block" true) }}</span><span class="fw-bold h5 mb-0">{{ .title }}</span> 
+              </button>
+            </h2>
+            <div id="collapse-{{ $index }}"
+              class="accordion-collapse collapse {{ if eq $index 99 }} show{{ end }}"
+              aria-labelledby="heading-{{ $index }}" data-bs-parent="#accordionFAQ">
+              <div class="accordion-body">
+                {{ $element.content}}
+              </div>
+            </div>
+          </div>
+          {{ end }}{{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

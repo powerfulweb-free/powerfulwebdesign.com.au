@@ -1,0 +1,15 @@
+{{ partial "scripts/esbuild" (dict "src" "js/assets.js" "load" "async" "transpile" true) }}
+{{ partial "scripts/esbuild" (dict "src" "js/vendors.js" "load" "async" "transpile" false) }}
+{{ partial "scripts/esbuild" (dict "src" "js/aos.js" "load" "async" "transpile" false) }}
+{{ partial "scripts/esbuild" (dict "src" "js/swiper.js" "load" "async" "transpile" false) }}
+{{ if .IsHome }}
+{{/* partial "scripts/esbuild-babel" "js/contact.js" */}}
+{{/* partial "scripts/esbuild-babel" "js/swiper.js" */}}
+{{ end }}
+
+{{ if eq (hugo.Environment) "production" -}}
+{{ partial "footer/facebook" . }}
+{{ end }}
+<!-- back to top icon -->
+{{/* partial "components/c-back-to-top" "icons/bootstrap/arrow-up-short.svg" */}}
+

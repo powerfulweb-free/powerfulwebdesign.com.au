@@ -1,0 +1,199 @@
+// /* ============================= 
+//     COMMON CSS
+// ================================ */
+
+// // o- = reusable object
+// // c- = component (usually used once)
+// // u- = helper utility class (usually one declaration
+// // js- = binds to javascript\
+
+// // html {
+// //   scroll-behavior: smooth;
+// // }
+
+// body {  //fix this!!!
+//   font-family: "Open Sans", sans-serif;
+// }
+
+// .transition {  //depreciated
+//   @include transition(0.3s);
+// }
+
+
+
+// .sprite {  //DEPRECIATED but in use in this site
+//   //set bs text class and margin class and bg class e.g. text-primary m-2 bg-body // set size with sprite-$spacer (custom bs utility)
+//   fill: currentColor;
+//   //display: block;
+//   @extend .d-inline-flex;
+// }
+
+
+
+
+
+
+
+// .icon {  //depreciated
+//   //round background for sprite  set padding class e.g. p-3 (plus margin) and optionally icon-outline-X
+//   border-radius: 50%;
+//   @extend .d-inline-flex;
+// }
+
+// .icon-outline-2 {  //depreciated
+//   //set bs text-color
+//   border: 2px solid currentColor;
+// }
+
+// .icon-outline-3 {  //depreciated
+//   //set bs text-color
+//   border: 3px solid currentColor;
+// }
+
+// .bg-img {
+//   //display: inline-block;
+//   overflow: hidden;
+//   //position: relative;
+
+//   img {
+//     min-height: 100%;
+//     min-width: 100%;
+//     object-fit: cover;
+//     pointer-events: none;
+//     position: absolute;
+//     display: block;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     //z-index: 1;
+//   }
+
+//   .overlay {
+//     z-index: 2
+//   }
+// }
+
+// .link-no-decoration {  //depreciated see below
+//   text-decoration: none;
+//   color: inherit;
+// }
+
+
+
+// .back-to-top {  //move to component file
+//   position: fixed;
+//   right: 15px;
+//   bottom: 15px;
+//   z-index: 99999;
+// }
+
+
+// // ul {
+// //   margin: 0;
+// //   padding: 0;
+// //   list-style: none;
+// // }
+
+// p {   //FIX THIS!
+//   font-family: "Raleway", sans-serif;
+// }
+
+// h1 {
+//   //PAGE HEADING
+//   font-weight: 700;
+//   //line-height: 56px;
+//   color: $black;
+// }
+
+// h2 {
+//   //section heading
+//   text-transform: uppercase;
+// }
+
+// h5 {
+//   font-size: .875rem;
+//   color: #999;
+//   //color: #484848;
+// }
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-family: "Raleway", sans-serif;
+// }
+
+
+
+
+// /* DISABLES SMOOTH SCROLL
+// @media (prefers-reduced-motion: no-preference) {
+//   :root {
+//     scroll-behavior: auto;
+//   }
+// }
+// */
+
+// // could be re implemented with this
+// // @include media-breakpoint-down(sm) {}
+// // .container {
+// //   @media #{$xs} {
+// //     padding: 0 30px;
+// //   }
+// // }
+
+
+
+// /*--------------------------------------------------------------
+// # Sections General
+// --------------------------------------------------------------*/
+
+
+// @include media-breakpoint-up(lg) {
+
+//   //LG and up (menu expanded)
+//   main {
+//     section:first-of-type {
+//       .row:first-of-type {
+//         padding-top: 7rem; //Top of page margin (inside first section's container), does not affect background colours (bumps below sticky header)
+//         //padding-bottom: 7rem;
+//       }
+//     }
+//   }
+// }
+
+// @include media-breakpoint-down(lg) {
+
+//   //below LG (menu collapsed)
+//   main {
+//     section:first-of-type {
+//       .row:first-of-type {
+//         padding-top: 5rem; //Top of page margin (inside first section's container), does not affect background colours (bumps below sticky header)
+//       }
+//     }
+//   }
+// }
+
+// main {
+//   section:not(:first-of-type) {
+//     .row:first-of-type {
+//       padding-top: 5rem; // padding for subsequent containers to bump below sticky header when using anchor tags, does not affect background colours
+//     }
+//   }
+// }
+
+
+// @include media-breakpoint-down(md) {
+
+//   //below MD (mobile footer)
+//   main {
+//     section:last-of-type {
+//       .row:last-of-type {
+//         padding-bottom: 5rem; //Top of page margin (inside first section's container), does not affect background colours (bumps below sticky header)
+//       }
+//     }
+//   }
+// }

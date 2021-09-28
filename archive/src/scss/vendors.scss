@@ -1,0 +1,32 @@
+html.no-js {
+//   [data-aos] {
+//     opacity: 1 !important;
+//     transform: translate(0) scale(1) !important;
+// }
+
+
+}
+
+
+//SWIPER VARIABLES
+$themeColor: $primary; // #007aff !default;
+// $colors: (
+//   'white': #ffffff,
+//   'black': #000000,
+// ) !default;
+@import 'swiper/swiper.scss';
+@import 'swiper/components/pagination/pagination.scss';
+
+
+/*--------------------------------------------------------------
+# Disable AOS delay on mobile
+--------------------------------------------------------------*/
+// @include media-breakpoint-down(md) {
+
+//   //ADD BS QUERY
+//   [data-aos-delay] {
+//     transition-delay: 0 !important;
+//   }
+// }
+
+

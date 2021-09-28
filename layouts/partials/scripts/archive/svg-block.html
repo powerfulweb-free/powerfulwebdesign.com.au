@@ -1,0 +1,25 @@
+<!-- DEPRECIATED -->
+{{/* {{ partial "scripts/svg-block" (dict "svg" "bootstrap/envelope" "em" 1 )}} */}}
+{{- $svgFile := resources.Get (printf "icons/%s.svg" .svg ) -}}
+<!-- strip file path and extension -->
+{{- $svgFileName := replaceRE ".*\\/(.*)\\.[^.]+$" "$1" $svgFile.Name }}
+<!-- print svg content -->
+{{- $svgContent := $svgFile.Content -}}
+<!-- declare size for svg style -->
+{{/* $size := 1 */}}
+<!-- assign .em partial parameter to $size if not "em" is declared, defaults to 1em -->
+{{ $size := .em | default 1 }}
+<!-- add size in em to style parameter -->
+{{ $style := printf "height: %vem; width: %vem; display: block; vertical-align: middle; font-size: inherit; color: inherit; fill: currentColor;" $size $size }}
+<!-- add style to regex replacement string -->
+{{ $addStyle := printf `<svg ${1} style="%s">${2}</svg>` $style }}
+<!-- modify the SVG tag -->
+{{/* $svgModified := replaceRE `<svg (.*")>((\n|.)*)</svg>` $addStyle $svgContent */}}
+{{ $svgModified := replaceRE `<svg (.*")>((\n|.)+)</svg>` $addStyle $svgContent }}
+<!-- wrap svg in span and style -->
+<!-- <span class="svg svg__{{ $svgFileName }}" 
+  style="display: inline-flex; align-self: center;">
+  {{- $svgModified | safeHTML -}}
+</span>  -->
+
+{{- $svgModified | safeHTML -}}

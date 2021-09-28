@@ -1,0 +1,99 @@
+// figure {
+//   margin: 2rem 0;
+// }
+
+// .figure-caption {
+//   margin: 0.25rem 0 0.75rem;
+// }
+
+// figure.wide {
+//   margin: 2rem -1.5rem;
+// }
+
+// figure.wide .figure-caption {
+//   margin: 0.25rem 1.5rem 0.75rem;
+// }
+
+// @include media-breakpoint-up(md) {
+//   figure.wide {
+//     margin: 2rem -2.5rem;
+//   }
+
+//   figure.wide .figure-caption {
+//     margin: 0.25rem 2.5rem 0.75rem;
+//   }
+// }
+
+// @include media-breakpoint-up(lg) {
+//   figure.wide {
+//     margin: 2rem -5rem;
+//   }
+
+//   figure.wide .figure-caption {
+//     margin: 0.25rem 5rem 0.75rem;
+//   }
+// }
+
+// .blur-up {
+//   filter: blur(5px);
+// }
+
+// .blur-up.lazyloaded {
+//   filter: unset;
+// }
+
+
+// // instructions
+// // svg svg-[bs color] svg-[sm/lg]
+
+// //SIZE FOR o-svg
+// $svg-size-sm: 1rem !default;  
+// $svg-size: 1.5rem !default;  
+// $svg-size-lg: 2rem !default;  
+
+// //display SVG on its own
+// @mixin svg-size($size) {
+//   svg { 
+//   height: $size;
+//   width: $size;  
+//   } 
+// }
+
+// @mixin svg-variant(
+//   $color,
+// ) {
+//   fill: $color;
+//   color: $color;
+// }
+
+// .svg {
+//    // set size with o-svg-$spacer (custom bs utility)
+  
+//   color: inherit;  //color is inherited unless set with o-svg--$color
+//   //display: block;
+//   background: transparent;
+//   @extend .d-inline-flex;
+//   margin: $btn-padding-y $btn-padding-x;
+//   svg {
+//     height: $svg-size; 
+//     width: $svg-size; //DEFAULT ONLY
+//     fill: currentColor;  //inherits from .svg
+//   }
+//   &-sm {
+//     @include svg-size($svg-size-sm);
+//   }
+//   &-lg {
+//     @include svg-size($svg-size-lg);
+//   }
+//   &-no-margin {
+//     margin: 0;
+//   }
+// }
+
+// @each $color, $value in $theme-colors {
+//   .svg-#{$color} {
+//     @include svg-variant($value);
+//   }
+// }
+
+

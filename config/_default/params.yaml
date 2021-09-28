@@ -1,0 +1,137 @@
+
+titleSeparator: "-"
+titleAddition: "" #for home page
+description: "Sydney's best small business web design firm. 100% Australian owned and operated. We specialise in providing cost effective websites and online marking for Australian Small Businesses. Affordable web design packages, hosting and domains. We make updating your website easy."
+
+images: 
+- "logo/logo-large.png" #for social templates
+#MENU LOGO
+logoPath: "logo/logo-slim.png"
+# logoWidth: 100 # (100)
+
+
+
+#apple browser config
+appleFullScreen: true
+appleStatusColor: "white"
+noApplePhoneLinks: true
+safariBgColor: "#5bbad5"
+#ms brower config
+
+msTileColor: "#00aba9"
+
+#used for social meta, schema and social links.
+#GOOGLE BUSINESS LISTING
+googleBizURL: "https://g.page/powerful-web-design?gm"
+googleBizIcon: "#social--google"
+#FACEBOOK
+facebookAuthor: "Powerful Web Design"
+facebookPublisher: "Powerful Web Design"
+facebookURL: "https://www.facebook.com/powerfulwebdesign"
+#facebookText: "www.facebook.com/summysnakstation" #for contact-details inclusion
+facebookIcon: "#social--facebook-f"
+#INSTAGRAM
+instagramURL: "https://www.instagram.com/powerfulwebdesign"
+instagramIcon: "#social--instagram"
+#LINKED IN
+linkedInURL: "https://www.linkedin.com/in/powerfulwebdesign/"
+linkedInIcon: "#social--linkedin"
+#TWITTER
+twitterSite: "@powerfulwebdesign"
+twitterCreator: "@powerfulwebdesign"
+twitterURL: "https://twitter.com/Powerful_Web"
+twitterIcon: "icons/bootstrap/twitter.svg"
+
+
+
+#GITHUB
+#gitHubURL: "https://github.com/powerfulwebdesign"
+#gitHubIcon: ""
+
+
+#####################
+# c-social-links    #
+#####################
+socialGoogleBizURL: "https://g.page/powerful-web-design?gm"
+socialFacebookURL: "https://www.facebook.com/powerfulwebdesign"
+socialInstagramURL: "https://www.instagram.com/powerfulwebdesign"
+socialLinkedInURL: "https://www.linkedin.com/in/powerfulwebdesign/"
+socialTwitterURL: "https://twitter.com/Powerful_Web"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ogLocale: "en_AU"  # needs underscore e.g. en_AU
+#head schema additional config
+schemaType: "Organization"  #organisation/person
+schemaLogo: "favicon-194x194.png" #112x112 min
+siteLinksSearchBox: false
+schemaSection: "Website"
+
+#SITE ALERT TEXT FOR TOP OF PAGE
+alert: false
+alertText: "Deliver web projects 10x faster. <a clas:\"alert-link\" hre:\"https://www.netlify.com/whitepaper/\" targe:\"_blank\" re:\"noopener\">Get the free enterprise paper →</a>"
+
+#MENU LOGO
+# logoPath: "header-logo.jpg"
+# logoWidth: "100"  
+
+#CONFIGURE TOP MENU BUTTON  
+menu_button_text: "Help Desk"
+menu_button_link: "https://support.powerfulwebdesign.com.au/"
+menu_button_style: "btn-warning" # bootstrap button class
+
+#MENU LISTING
+#auto generated active link (disable for scroll spy) 
+
+
+
+
+
+
+
+
+socialButtons:
+  - url: https://g.page/powerful-web-design?gm
+    icon: icons/bootstrap/google
+  - url: https://www.facebook.com/powerfulwebdesign
+    icon: icons/bootstrap/facebook
+  - url: https://www.instagram.com/powerfulwebdesign
+    icon: icons/bootstrap/instagram
+  - url: https://www.linkedin.com/company/powerful-web-design/
+    icon: icons/bootstrap/linkedin
+  - url: https://twitter.com/Powerful_Web
+    icon: icons/bootstrap/twitter
+
+
+topBar:
+  - text: enquiries@powerfulwebdesign.com.au
+    url: mailto:enquiries@powerfulwebdesign.com.au
+    icon: icons/box/bx-envelope
+  - text: (02) 8004 3293
+    url: tel:+61280043293
+    icon: icons/box/bx-phone-call
+
+mobileFooter:
+  text: (02) 8004 3293
+  URL: tel:+61280043293
+  icon:  icons/bootstrap/telephone

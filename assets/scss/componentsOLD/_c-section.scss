@@ -1,0 +1,30 @@
+.section {
+  @extend .py-3; //adds 1rem padding to top and bottom of each section
+  @extend .container-fluid;
+
+  &__title {
+    @extend .text-center;
+    &:before {
+      margin: 0 15px 10px 0;
+    }
+
+    &:after {
+      margin: 0 0 10px 15px;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      width: 50px;
+      height: 2px;
+      background: $primary;
+      display: inline-block;
+    }
+  }
+  &__subtitle {
+    @extend .h4, .text-center;
+  }
+  &__content {
+
+  }
+}

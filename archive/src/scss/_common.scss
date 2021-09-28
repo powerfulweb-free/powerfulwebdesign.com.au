@@ -1,0 +1,247 @@
+/* ============================= 
+    COMMON CSS
+================================ */
+
+// o- = reusable object
+// c- = component (usually used once)
+// u- = helper utility class (usually one declaration
+// js- = binds to javascript\
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.transition {
+  @include transition(0.3s);
+}
+
+.u-transition {
+  @include transition(0.3s);
+}
+
+.sprite {
+  //set bs text class and margin class and bg class e.g. text-primary m-2 bg-body // set size with sprite-$spacer (custom bs utility)
+  fill: currentColor;
+  //display: block;
+  @extend .d-inline-flex;
+}
+
+
+
+
+
+.icon {
+  //round background for sprite  set padding class e.g. p-3 (plus margin) and optionally icon-outline-X
+  border-radius: 50%;
+  @extend .d-inline-flex;
+}
+
+.icon-outline-2 {
+  //set bs text-color
+  border: 2px solid currentColor;
+}
+
+.icon-outline-3 {
+  //set bs text-color
+  border: 3px solid currentColor;
+}
+
+.bg-img {
+  //display: inline-block;
+  overflow: hidden;
+  //position: relative;
+
+  img {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    //z-index: 1;
+  }
+
+  .overlay {
+    z-index: 2
+  }
+}
+
+.link-no-decoration {  //depreciated see below
+  text-decoration: none;
+  color: inherit;
+}
+
+.u-link-no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+
+  &:hover {
+    background: $primary;
+  }
+
+  svg {
+    // align-items: center;
+    // justify-content: center;
+    // width: 40px;
+    // height: 40px;
+    // background: transparent;
+    // color: $primary;
+    // @include transition(0.3s);
+
+    &:hover {
+      color: $body-bg;
+    }
+  }
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  //PAGE HEADING
+  font-weight: 700;
+  //line-height: 56px;
+  color: $black;
+}
+
+h2 {
+  //section heading
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: .875rem;
+  color: #999;
+  //color: #484848;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+.section {
+  @extend .py-3; //adds 1rem padding to top and bottom of each section
+  @extend .container-fluid;
+
+  &__title {
+    @extend .text-center;
+    &:before {
+      margin: 0 15px 10px 0;
+    }
+
+    &:after {
+      margin: 0 0 10px 15px;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      width: 50px;
+      height: 2px;
+      background: $primary;
+      display: inline-block;
+    }
+  }
+  &__subtitle {
+    @extend .h4, .text-center;
+  }
+  &__content {
+
+  }
+}
+
+
+/* DISABLES SMOOTH SCROLL
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+*/
+
+// could be re implemented with this
+// @include media-breakpoint-down(sm) {}
+// .container {
+//   @media #{$xs} {
+//     padding: 0 30px;
+//   }
+// }
+
+
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+@include media-breakpoint-up(lg) {
+
+  //LG and up (menu expanded)
+  main {
+    section:first-of-type {
+      .row:first-of-type {
+        padding-top: 7rem; //Top of page margin (inside first section's container), does not affect background colours (bumps below sticky header)
+        //padding-bottom: 7rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+
+  //below LG (menu collapsed)
+  main {
+    section:first-of-type {
+      .row:first-of-type {
+        padding-top: 5rem; //Top of page margin (inside first section's container), does not affect background colours (bumps below sticky header)
+      }
+    }
+  }
+}
+
+main {
+  section:not(:first-of-type) {
+    .row:first-of-type {
+      padding-top: 5rem; // padding for subsequent containers to bump below sticky header when using anchor tags, does not affect background colours
+    }
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+
+  //below MD (mobile footer)
+  main {
+    section:last-of-type {
+      .row:last-of-type {
+        padding-bottom: 5rem; //Top of page margin (inside first section's container), does not affect background colours (bumps below sticky header)
+      }
+    }
+  }
+}

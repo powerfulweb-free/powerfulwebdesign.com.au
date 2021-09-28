@@ -1,0 +1,6 @@
+{{/*- {{- partial "scripts/background-image" (dict "page" $ "image" .image "class" ".section--hero" "lazyload" true/false ) -}}     -*/}} 
+{{/*- depends on js/no-js and webp/no-webp classes in HTML tag -*/}}
+{{/*- "image" needs to point to a page resource -*/}}
+{{/*- "class" is the class of the div that the background is targetting -*/}}
+{{/*- "lazyload" adds/substitutes lazyload classes and requires lazysizes.js -*/}}
+{{- partial "_background-image" . | safeCSS | safeHTML -}}

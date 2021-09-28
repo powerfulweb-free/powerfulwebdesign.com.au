@@ -1,0 +1,22 @@
+.c-contact-details {
+
+  &__row {
+    @extend .d-flex, .flex-row, .py-2;
+    
+  }
+  &__svg { 
+    @extend .o-svg, .o-svg--primary;
+
+    // &--offset {
+    //   @extend .mt-4, .ms-1;
+    // }
+  }
+
+  &__href {
+    word-break: break-all;
+  }
+
+  &__text {
+    @extend .d-flex, .align-items-center;
+  }
+}

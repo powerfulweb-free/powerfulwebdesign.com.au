@@ -1,0 +1,47 @@
+//e.g.  @include transition(0.3s)
+@mixin transition($time) {
+  transition: all $time ease-in-out;
+}
+
+@mixin transform($value) {
+  transform: $value;
+}
+
+@mixin user-select($value) {
+  user-select: $value;
+}
+
+
+@mixin box-sizing($value) {
+  box-sizing: $value;
+}
+
+
+@mixin animation($value) {
+  animation: $value;
+}
+
+
+@mixin animation-delay($value) {
+  animation-delay: $value;
+}
+
+
+
+@mixin box-shadow($value) {
+  box-shadow: $value;
+}
+
+
+// Placeholder Mixins
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
