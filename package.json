@@ -14,7 +14,7 @@
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.0",
     "@fullhuman/postcss-purgecss": "^4.0.3",
-    "@popperjs/core": "^2.9.1",
+    "@popperjs/core": "^2.10.1",
     "aos": "^2.3.4",
     "autoprefixer": "^9.8.6",
     "bootstrap": "^5.0.0-beta3",
