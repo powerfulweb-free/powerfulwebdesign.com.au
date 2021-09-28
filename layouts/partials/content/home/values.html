@@ -13,7 +13,7 @@
             <h5 class="card-title text-center fw-bolder mb-3">{{ .title }}</h5>
             <p class="card-text">{{ .content }}</p>
             {{ with .readMore }}
-            <div class="read-more text-uppercase fw-bold small"><a href="{{ . }}"><i class="bi bi-arrow-right"></i> Read More</a></div>
+            <div class="read-more text-uppercase fw-bold small"><a href="{{ . }}"><span class="fs-3">{{ partial "svg-font" (dict "svg" "icons/box/bx-chevron-right")}}</span> Read More</a></div>
             {{ end }}
           </div>
         </div>
