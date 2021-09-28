@@ -28,7 +28,7 @@
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "markdownlint-cli": "^0.26",
+    "markdownlint-cli": "^0.28",
     "prettier": "^2.2.1",
     "standard-version": "^9.1",
     "stylelint": "^13.9",
