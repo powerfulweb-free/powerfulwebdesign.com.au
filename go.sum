@@ -8,8 +8,6 @@ github.com/future-wd/hugo-svg-font v0.9.1 h1:QNe/sgCthA5albq5xwvQAjkXZq7yTJs9RGI
 github.com/future-wd/hugo-svg-font v0.9.1/go.mod h1:piGkkzYhOE5DdcZiYUIiiBTCXCUl4QmCrVcmtH4jOoU=
 github.com/powerfulweb/hugo-common v1.4.8 h1:SJFrKE3umPxMsK013+Cu/SUYlCKX2TpQC/OsRtzhkUM=
 github.com/powerfulweb/hugo-common v1.4.8/go.mod h1:/8lequv3EUoLp6Asytgz4Bho1PJUespnq8Zf27XcwAg=
-github.com/powerfulweb/image-mod-hugo v1.0.3 h1:UVqdkhhrbBkz4ya7fdSA+4kViCB82upaSNVmTUngbc0=
-github.com/powerfulweb/image-mod-hugo v1.0.3/go.mod h1:sk90M0DtHaE0zE5X0FipOjsVcklymI5rDvUIFmDIcZ4=
 github.com/simple-icons/simple-icons v0.0.0-20210425085441-01aa121e6a40 h1:9xn9jLT2nY4EjKrYZzVsSoWwhKHsthOCn0gV1s77QzY=
 github.com/simple-icons/simple-icons v0.0.0-20210425085441-01aa121e6a40/go.mod h1:oOgUUt8yVYOso/wEBi2ojfZP2MU/xxiNccIpaE+jCvE=
 github.com/twbs/icons v1.4.1 h1:Lw0T/XiHDgFKwkh5TcJ1LgB+8cLAB3QPlzjZXGn4pKU=
