@@ -1,9 +1,9 @@
 <!-- ======= Top Bar ======= -->
 <section id="top" class="d-flex align-items-center p-0 small bg-dark section section--top">
-  <div class="container d-flex justify-content-center justify-content-md-between">
-    <div class="contact-info d-flex align-items-center pb-1">
+  <div class="container-md">
+    <div class="row d-flex align-items-center pb-1">
       {{ range site.Params.topBar }}
-      <div class="pe-3">
+      <div class="col pe-3 {{ .display }} ">
         <span class="text-danger fs-5">
         {{- partial "svg-font" (dict "svg" .icon "em" 1 ) -}}
         </span>

@@ -130,6 +130,7 @@ topBar:
   - text: (02) 8004 3293
     url: tel:+61280043293
     icon: icons/box/bx-phone-call
+    display: d-none d-sm-block
 
 mobileFooter:
   text: (02) 8004 3293
