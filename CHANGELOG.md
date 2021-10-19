@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.2.0 (2021-10-19)
+
+
+### Features
+
+* removed git submod and copied mods ([aaff2ed](https://github.com/powerfulweb/powerfulwebdesign.com.au/commit/aaff2ed2ee3e104ea396ef4ae95cf52c137a1fc8))
+
+
+### Bug Fixes
+
+* ablues and why us svg ([33145e6](https://github.com/powerfulweb/powerfulwebdesign.com.au/commit/33145e646a20726cf618a8240ddaa91985dd636f))
+* adjustad  header ([fd80693](https://github.com/powerfulweb/powerfulwebdesign.com.au/commit/fd806930e7f38b026a02d8c1f5ab5ecafccda246))
+* remove submodule cache ([f6ad242](https://github.com/powerfulweb/powerfulwebdesign.com.au/commit/f6ad242a4269151bee0c328b5161073653f88c73))
+* removed sub mod git folders ([32df05b](https://github.com/powerfulweb/powerfulwebdesign.com.au/commit/32df05bdae03f01dd8c0180137cb67d08806c816))
+* update modules ([ecd1610](https://github.com/powerfulweb/powerfulwebdesign.com.au/commit/ecd161099089f0d897b04887d2159c1980e5955e))
+
 ### [1.1.3](https://github.com/powerfulweb/powerfulwebdesign.com.au/compare/v1.1.2...v1.1.3) (2021-08-02)
 
 
