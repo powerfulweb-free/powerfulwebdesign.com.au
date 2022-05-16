@@ -4,6 +4,7 @@ module:
   - path: github.com/powerfulweb/hugo-common
   - path: github.com/future-wd/hugo-svg-font
   - path: github.com/future-wd/hugo-image
+  - path: github.com/future-wd/hugo-contact-form-xhr/v2
 
 baseurl: "https://www.powerfulwebdesign.com.au"
 

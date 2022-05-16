@@ -20,13 +20,13 @@
 // // see index.scss for assets scss import
 
 
-import contactForm from './contact-form-xhr/src';
-contactForm('js-contactForm', {
-  formAction: 'https://mail.powerfulwebdesign.com.au/pwd.php', 
-  grecaptchaKey: '6LddhmQaAAAAAGmtBf6WSeWpu3HzZTgaAeGFrsii', 
-  hiddenClass: 'd-none',
-  grecaptchaLocation: 'bottomright',
-});
+// import contactForm from './contact-form-xhr/src';
+// contactForm('js-contactForm', {
+//   formAction: 'https://mail.powerfulwebdesign.com.au/pwd.php', 
+//   grecaptchaKey: '6LddhmQaAAAAAGmtBf6WSeWpu3HzZTgaAeGFrsii', 
+//   hiddenClass: 'd-none',
+//   grecaptchaLocation: 'bottomright',
+// });
 
 import togglerIconMorph from './toggler-icon-morph/src';
 togglerIconMorph();
